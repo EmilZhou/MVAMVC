@@ -1,0 +1,40 @@
+﻿@using MVAMVC.Models
+
+@model Person
+
+@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<ul>
+    <li>First:@Model.FristName</li>
+    <li>Last:@Model.LastName</li>
+    <li>DOB:@Model.Birthdate.ToString("D")</li>
+</ul>
+
+
+<form asp-controller="Home" asp-action="About" method="post">
+    <div class="text-danger" asp-validation-summary="ValidationSummary.All"></div>
+    <div class="form-group">
+        <label for="firstname">First:</label>
+        <input asp-for="FristName" class="form-control" placeholder="First" />
+        <span asp-validation-for="FristName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="lastname">Last:</label>
+        <input asp-for="LastName" class="form-control" placeholder="Last" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="datetime">Birthdate:</label>
+        <input asp-for="Birthdate" class="form-control" />
+        <span asp-validation-for="Birthdate" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-default" type="submit" value="Submit">Submit</button>
+</form>
+
